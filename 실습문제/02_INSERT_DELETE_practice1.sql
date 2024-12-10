@@ -102,3 +102,46 @@ VALUES (29, '테라스카페', '서울 동작구', '010-9876-1234');
 INSERT INTO EATS (CAFE_ID, CAFE_NAME, LOCATION, CONTACT_NUMBER)
 VALUES (30, '그린티라떼', '서울 송파구', '010-1234-5678');
 
+-- DEPARTMENT 테이블에서 DEPT_ID 가 'D9'인 부서 정보 조회
+SELECT * FROM DEPARTMENT
+WHERE DEPT_ID = 'D9'; -- 총무부
+
+-- DEPARTMENT 테이블에서 DEPT_ID 가 'D9'인 행의 DEPT_TITLE 을 전략기획팀으로 수정
+
+UPDATE DEPARTMENT
+SET DEPT_TITLE = '전략기회팀'
+WHERE DEPT_ID = 'D9';
+
+SELECT * FROM DEPARTMENT
+WHERE DEPT_ID = 'D9'; -- 전략기획팀
+
+SELECT * FROM EATS;
+-- 로맨틱블루 라는 카페의 전화번호를 010-0000-1111로 변경
+UPDATE EATS
+SET CONTACT_NUMBER = '010-0000-1111'
+WHERE CAFE_NAME = '로맨틱블루';
+
+SELECT * FROM EATS_MENU;
+-- EATS_MENU 테이블에서 MENU_NAME = 화이트 모카 인 메뉴의 가격을 6000원으로 업데이트
+---- 메뉴 이름은 정확히 화이트 모카 만
+
+UPDATE EATS_MENU 
+SET PRICE = 6000
+WHERE MENU_NAME = '화이트모카';
+SELECT * FROM EATS_MENU;
+
+UPDATE EATS_MENU 
+SET DESCRIPTION = '홍차와 우유가 어우러진 진한 맛의 밀크티'
+WHERE MENU_NAME = '밀크티';
+
+UPDATE EATS_MENU 
+SET PRICE = PRICE * 1.1
+WHERE PRICE <= 5000;
+
+-- 그린빈 카페 서울시 종로구 010-2345-6789 에서 경기도 안양시 주소 변경 전화번호 제거
+-- 제거 = NULL 사용
+UPDATE EATS
+SET LOCATION = '경기도 안양시', CONTACT_NUMBER = NULL 
+WHERE CAFE_NAME = '그린빈 카페';
+
+
