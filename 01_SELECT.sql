@@ -137,6 +137,19 @@ WHERE 조건작성;
 -- 컬럼명 IN (값1, 값2, 값3 ...) = 컬럼의 값이 () 안에 작성된 값과 일치하면 TRUE
 -- 컬럼명 NOT IN (값1, 값2, 값3 ...) = 컬럼의 값이 () 안에 작성된 값과 일치하면 FALSE, 일치하지 않으면 TRUE
 
+***** LIKE *****
+
+비교하려는 값이 특정한 패턴을 만족 시키면 (TRUE) 조회하는 연산자
+
+[작성법]
+WHERE 컬럼명 LIKE '패턴';
+
+'%' (포함하다)
+
+ - '%A' : A라는 문자로 끝나는 문자열 찾기
+ - 'A%' : A라는 문자로 시작하는 문자열 찾기
+ - '%A%' : A라는 문자가 어디에서든 포함된 문자열 찾기
+
 
 WHERE 에서 존재 유무 확인
 IS NOT NULL = 빈 값이 아닌 칸
@@ -231,3 +244,29 @@ IN () = 조건에 여러 값을 지정할 때 사용 값의 목록 중 하나와
 NOT IN () = IN 과 반대로, 조건에서 지정한 목록에 포함되지 않는 값만 선택
             값의 목록과 일치하지 않는 행만 선택
 */
+
+
+/* ***** ORDER BY 절 *****
+   - SELECT 문의 조회 결과(Result SET)를 정렬할 때 사용하는 구문
+     SELECT 구문에서 제일 마지막에해석
+
+   [작성법]
+   3 : SELECT 컬럼명 AS 별칭, 컬럼명, 컬럼명 ...
+   1 : FROM 테이블명
+   2 : WHERE 조건식
+   4 : ORDER BY 컬럼명 | 별칭 | 컬럼순서 [ 오름 / 내림 차순]
+
+   오름차순 : ASC(ascending)
+   내림차순 : DESC(descending)
+
+   ORDER BY 컬럼명; 미작성시 default 오름차순
+
+   NULLS FIRST / NULLS LAST
+   null 값을 어디에 배치할 지 설정
+   NULLS FIRST : null 값을 맨 위에 설정
+   NULLS LAST : null 값을 맨 아래에 설정
+   ORDER BY에서 맨 뒤에 작성
+
+   ORDER BY 뒤에 NULL에 대한 배치 표기가 없다면 default NULLS LAST  
+ */
+

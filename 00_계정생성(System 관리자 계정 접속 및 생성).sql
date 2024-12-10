@@ -268,3 +268,8 @@ NOT IN () = IN 과 반대로, 조건에서 지정한 목록에 포함되지 않�
 SELECT EMP_NAME, DEPT_CODE
 FROM EMPLOYEE
 WHERE DEPT_CODE NOT IN('D1', 'D3'); 
+
+-- D5 부서에 속한 사원의 사원번호 사원이름 부서코드 조회
+SELECT EMP_NO, EMP_NAME, DEPT_DOE
+FROM EMPLOYEE
+WHERE DEPT_CODE = 'D1';

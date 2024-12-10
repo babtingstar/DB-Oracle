@@ -231,3 +231,28 @@ IN () = 조건에 여러 값을 지정할 때 사용 값의 목록 중 하나와
 NOT IN () = IN 과 반대로, 조건에서 지정한 목록에 포함되지 않는 값만 선택
             값의 목록과 일치하지 않는 행만 선택
 */
+
+-- D5 부서에 속한 사원의 사원번호 사원이름 부서코드 조회
+SELECT EMP_NO, EMP_NAME, DEPT_CODE
+FROM EMPLOYEE
+WHERE DEPT_CODE = 'D1';
+
+-- 입사일(HIRE_DATE)가 2000년 이후인 직원의 정보를 조회 (EMPLOYEE 내부)
+SELECT *
+FROM EMPLOYEE
+WHERE HIRE_DATE >=TO_DATE('2000-01-01', 'YYYY-MM-DD');
+
+-- EMPLOYEE 테이블에서 퇴직여부가 'Y' 이고, 퇴사일이 2015 년 이후인 직원들의 정보를 조회
+SELECT *
+FROM EMPLOYEE
+WHERE ENT_YN = 'Y' AND ENT_DATE >= TO_DATE('2015-01-01', 'YYYY-MM-DD');
+
+-- EMPLOYEE 테이블에서 성씨가 '전' 씨인 사원의 이름 조회
+SELECT EMP_NAME
+FROM EMPLOYEE
+WHERE EMP_NAME LIKE '전%';
+
+-- EMPLOYEE 테이블에서 이름이 수 로 끝나는 사원의 이름 조회
+SELECT EMP_NAME
+FROM EMPLOYEE
+WHERE EMP_NAME LIKE '%수';
