@@ -37,3 +37,4 @@ VALUES
 -- 데이블 내 데이터 삭제) DELETE FROM 테이블명 WHERE = 테이블에서 하나의 행 삭제할 조건;
 -- Error Code : 1051. Unkown table 'khtdb.userprofile' 테이블이 존재하지 않기 때문에 삭제 불가
 DROP TABLE USERPROFILE;
+DELETE FROM USERPROFILE; -- 테이블 내 모든 데이터 삭제
