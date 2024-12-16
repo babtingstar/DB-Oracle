@@ -38,3 +38,8 @@ VALUES
 -- Error Code : 1051. Unkown table 'khtdb.userprofile' 테이블이 존재하지 않기 때문에 삭제 불가
 DROP TABLE USERPROFILE;
 DELETE FROM USERPROFILE; -- 테이블 내 모든 데이터 삭제
+select * from userprofile;
+
+-- 이광수 삭제 : primary key 가 걸려있어 삭제되지 않음. primary key 까지 모두 작성
+delete from userprofile where username = '이광수';
+delete from userprofile where username = '이광수' and user_id = 17;
