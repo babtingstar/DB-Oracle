@@ -47,3 +47,18 @@ Durability(지속성) : 트랜잭션이 완료된 후의 결과는 영구적으�
 			   예) 시스템이 갑자기 다운되어도, 성공적으로 완료된 거래 결과는 유지되어야 함
 				은행에서 5만원 송금 후, 서비스 점검으로 1시간 후에 계좌 확인을 했을때 송금내역이 존재해야 함
 */
+/*
+select * from khtuser.user;
+
+start transaction; -- savepoint 를 사용하기 위해 transaction 시작 수동 제어
+savepoint sp1; -- savepoint 지정
+use khtuser; -- khtuser db 접속
+update user set phone = substring_index(phone, ')', 1); -- update로 수정
+select * from user; -- 수정 내용 확인(결과 : 실패)
+
+rollback to sp1; -- savepoint로 롤백
+update user set phone = substring_index(phone, ')', -1); -- 재수정
+select * from user; -- 수정 내용 확인
+
+commit; -- 결과 저장
+*/
