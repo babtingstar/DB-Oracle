@@ -60,7 +60,9 @@ NOT NULL
       유저명 VARCHAR(50) NOT NULL DEFAULT CURRENT_DATE
       가입일자
       );
-
+    -- DATE 자료형은 current_timestamp 사용 불가
+    -- DATE 자료형은 Y-M-D 저장, DATEIME Y-M-D T-M-S 저장이라 서로 자료형이 다름    
+    
     유저명 과 가입일자 모두 NULL 값 작성 X
     유저명 : 회원가입 시 유저가 유저명 작성하지 않으면 회운가입 X
     가입일자 : 회원 가입 시 유저가 일자를 작성하지 않아도 DB에 회원가입이 저장되는 시간 기준으로 저장
