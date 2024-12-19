@@ -28,28 +28,20 @@ TRIGGER trg_user
 BEFORE INSERT ON student
 FOR EACH ROW
 BEGIN -- 시퀀스를 사용해서 student 테이블 내 studentid 번호를 자동으로 생성
-	: NEW.studentid = SEQ_USER.NEXTVAL;
+	: NEW.studentid := SEQ_USER.NEXTVAL;
 END;
 
-INSERT INTO student(STUDENTID, STUDENTNAME, STUDENTAGE)
-VALUES (seq_user.NEXTVAL, '안정미', 15);
+/*oracle 구문에서 어쩌구*/
 
--- STUDENT 테이블에 학생 정보를 저장하려 한다
--- STUDENTID 를 명시하지 않고, 자동으로 증가하는 값으로 학생을 저장하기
--- INSERT INTO 테이블명칭 (studentname, studentage) values ('홍길동', 11)
--- 강철수 12, 박길자 13, 오말숙 14 안정미 15 / 1 2 3 4 번호순으로 저장하기
--- select 문 활용해서 저장이 잘 되었는지 확인
+INSERT INTO STUDENT(STUDENTNAME, STUDENTAGE) VALUES ('홍길동', 11);
+INSERT INTO STUDENT(STUDENTNAME, STUDENTAGE) VALUES ('강철수', 12);
+INSERT INTO STUDENT(STUDENTNAME, STUDENTAGE) VALUES ('박길자', 13);
+INSERT INTO STUDENT(STUDENTNAME, STUDENTAGE) VALUES ('오말숙', 14);
+INSERT INTO STUDENT(STUDENTNAME, STUDENTAGE) VALUES ('안정미', 15);
+INSERT INTO STUDENT(STUDENTNAME, STUDENTAGE) VALUES ('기타', 14);
+SELECT * FROM STUDENT;
 
 SELECT trigger_name, status
 FROM user_triggers
 WHERE trigger_name = 'trg_user';
-
-INSERT INTO STUDENT(STUDENTNAME, STUDENTAGE)
-VALUES('강철수', 12);
-
---VALUES('박길자', 13),
---VALUES('오말숙', 14),
---VALUES('안정미', 15);
-
-SELECT 
 
