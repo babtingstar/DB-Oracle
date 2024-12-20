@@ -150,6 +150,32 @@ WHERE 컬럼명 LIKE '패턴';
  - 'A%' : A라는 문자로 시작하는 문자열 찾기
  - '%A%' : A라는 문자가 어디에서든 포함된 문자열 찾기
 
+'_' (글자 수)
+ - 'A_' : A 뒤에 아무거나 한 글자만 존재하는 문자열 (A1, AB, A6, A하)
+ - '__A' : A 앞에 아무거나 두 글자가 존재하는 문자열 (가나A, CDA, 가ZA)
+ 
+ -- 한으로 시작하고 '한' 글자 뒤에 8글자만 있는 문자열
+select name
+from product
+where name like '한________'; 
+
+-- 한으로 시작하고 '한' 글자 뒤에 9글자만 있는 문자열
+select name
+from product
+where name like '한_________';
+
+-- 이메일 조회할 경우 글자가 9자리인 username 조회 / 단, @ 뒤에 오는 이메일 모두 포함해 가져올 것
+select username, email
+from user
+where email like '_________@%';
+
+ESCAPE'특수문자구분기호'
+ex) ESCAPE'#'
+  - ESCAPE : 특수문자를 단순한 문자열로 인식하게 해줌
+  select email
+  from user
+  where email like '___#_%' ESCAPE '#'; # 뒤에 오는 특수문자는 단순한 문자 취급
+
 
 WHERE 에서 존재 유무 확인
 IS NOT NULL = 빈 값이 아닌 칸
